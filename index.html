@@ -180,24 +180,23 @@
     });
   </script>
 
-  <!-- Visitor Counter Script -->
+  <!-- Visitor Counter -->
+<div id="visitor-count" class="text-sm text-center italic text-gray-500 dark:text-gray-400">
+  Visitors: Loading...
+</div>
+
+<!-- Visitor Counter Script -->
 <script>
   async function updateVisitorCount() {
     try {
       await fetch('https://resume-visitor-counter.miyarescarlosiv.workers.dev/increment', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
-          'Referer': 'https://resume.carlosmiyares.com'
+          'Content-Type': 'application/json'
         }
       });
 
-      const response = await fetch('https://resume-visitor-counter.miyarescarlosiv.workers.dev/count', {
-        headers: {
-          'Referer': 'https://resume.carlosmiyares.com'
-        }
-      });
-
+      const response = await fetch('https://resume-visitor-counter.miyarescarlosiv.workers.dev/count');
       const count = await response.text();
       document.getElementById('visitor-count').innerText = `Visitors: ${count}`;
     } catch (error) {
