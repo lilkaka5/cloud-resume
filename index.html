@@ -1,164 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Carlos Miyares IV – Resume</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carlos Miyares IV – Resume</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
     tailwind.config = {
       darkMode: 'class',
     }
-    </script>
-    <style>
-        @media print {
-            header, footer, button {
-                display: none !important;
-            }
+  </script>
+  <style>
+    @media print {
+      header, footer, button {
+        display: none !important;
+      }
+      body {
+        background: white !important;
+        color: black !important;
+      }
+      main {
+        box-shadow: none !important;
+      }
+    }
 
-            body {
-                background: white !important;
-                color: black !important;
-            }
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
 
-            main {
-                box-shadow: none !important;
-            }
-        }
-
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-                transform: none;
-            }
-        }
-
-        .animate-fadeIn {
-            animation: fadeIn 0.8s ease-out forwards;
-            transform: translateY(20px);
-        }
-    </style>
+    .animate-fadeIn {
+      animation: fadeIn 0.8s ease-out forwards;
+      transform: translateY(20px);
+    }
+  </style>
 </head>
+
 <body class="bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
 
-    <!-- Header -->
-    <header class="bg-gray-900 text-white py-6 text-center sticky top-0 z-50 shadow-md">
-        <h1 class="text-3xl font-bold">Carlos Miyares IV</h1>
-        <p class="text-lg text-gray-300">Security | Cloud | IAM | Operations | Compliance</p>
-        <div class="mt-4 space-x-2">
-            <button onclick="document.documentElement.classList.toggle('dark')" class="bg-white dark:bg-gray-700 text-sm text-gray-800 dark:text-white px-4 py-1 rounded shadow">
-                Toggle Dark Mode
-            </button>
-            <button onclick="window.print()" class="bg-blue-600 text-white text-sm px-4 py-1 rounded hover:bg-blue-700">
-                Download PDF
-            </button>
-        </div>
-    </header>
+  <!-- Header -->
+  <header class="bg-gray-900 text-white py-6 text-center sticky top-0 z-50 shadow-md">
+    <h1 class="text-3xl font-bold">Carlos Miyares IV</h1>
+    <p class="text-lg text-gray-300">Security | Cloud | IAM | Operations | Compliance</p>
+    <div class="mt-4 space-x-2">
+      <button onclick="document.documentElement.classList.toggle('dark')" class="bg-white dark:bg-gray-700 text-sm text-gray-800 dark:text-white px-4 py-1 rounded shadow">
+        Toggle Dark Mode
+      </button>
+      <button onclick="window.print()" class="bg-blue-600 text-white text-sm px-4 py-1 rounded hover:bg-blue-700">
+        Download PDF
+      </button>
+    </div>
+  </header>
 
-    <!-- Main Resume Container -->
-    <main class="max-w-4xl mx-auto bg-white dark:bg-gray-800 mt-8 p-6 rounded shadow-md space-y-10">
+  <!-- Main Resume Container -->
+  <main class="max-w-4xl mx-auto bg-white dark:bg-gray-800 mt-8 p-6 rounded shadow-md space-y-10">
 
-        <!-- Contact -->
-        <section>
-            <h2 class="text-xl font-semibold border-b pb-2 mb-4">Contact</h2>
-            <ul class="space-y-2">
-                <li>Fort Lauderdale, FL</li>
-                <li>miyarescarlosiv@icloud.com</li>
-                <li><a href="https://linkedin.com/in/carlosmiyares" class="text-blue-600 dark:text-blue-400 hover:underline">linkedin.com/in/carlosmiyares</a></li>
-            </ul>
-        </section>
+    <!-- Contact -->
+    <section>
+      <h2 class="text-xl font-semibold border-b pb-2 mb-4">Contact</h2>
+      <ul class="space-y-2">
+        <li>Fort Lauderdale, FL</li>
+        <li>miyarescarlosiv@icloud.com</li>
+        <li><a href="https://linkedin.com/in/carlosmiyares" class="text-blue-600 dark:text-blue-400 hover:underline">linkedin.com/in/carlosmiyares</a></li>
+      </ul>
+    </section>
 
-        <!-- Summary -->
-        <section>
-            <h2 class="text-xl font-semibold border-b pb-2 mb-4">Professional Summary</h2>
-            <ul class="list-disc pl-5 space-y-2">
-                <li>Cybersecurity leader with 10+ years of experience in IAM, XDR, compliance, and operations.</li>
-                <li>Manages security operations, enterprise XDR, and MSOC partnerships.</li>
-                <li>Skilled in Linux, automation scripting, and aligning security initiatives to compliance frameworks.</li>
-            </ul>
-        </section>
+    <!-- Summary -->
+    <section>
+      <h2 class="text-xl font-semibold border-b pb-2 mb-4">Professional Summary</h2>
+      <ul class="list-disc pl-5 space-y-2">
+        <li>Cybersecurity leader with 10+ years of experience in IAM, XDR, compliance, and operations.</li>
+        <li>Manages security operations, enterprise XDR, and MSOC partnerships.</li>
+        <li>Skilled in Linux, automation scripting, and aligning security initiatives to compliance frameworks.</li>
+      </ul>
+    </section>
 
-        <!-- Skills -->
-        <section>
-            <h2 class="text-xl font-semibold border-b pb-2 mb-4">Skills</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 list-disc pl-5">
-                <li>Security Operations & Incident Response</li>
-                <li>IAM (JML, ABAC, PIM, SSO)</li>
-                <li>Azure, Microsoft 365, AWS</li>
-                <li>Vulnerability & Patch Management</li>
-                <li>Compliance (NIST 800-53/63, HITRUST, SOC 2, PCI-DSS)</li>
-                <li>Email & Data Protection</li>
-                <li>Linux Administration</li>
-                <li>Automation (PowerShell, Logic Apps, Python)</li>
-                <li>Thales HSM – Crypto Key Management</li>
-            </div>
-        </section>
+    <!-- Skills -->
+    <section>
+      <h2 class="text-xl font-semibold border-b pb-2 mb-4">Skills</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 list-disc pl-5">
+        <li>Security Operations & Incident Response</li>
+        <li>IAM (JML, ABAC, PIM, SSO)</li>
+        <li>Azure, Microsoft 365, AWS</li>
+        <li>Vulnerability & Patch Management</li>
+        <li>Compliance (NIST 800-53/63, HITRUST, SOC 2, PCI-DSS)</li>
+        <li>Email & Data Protection</li>
+        <li>Linux Administration</li>
+        <li>Automation (PowerShell, Logic Apps, Python)</li>
+        <li>Thales HSM – Crypto Key Management</li>
+      </div>
+    </section>
 
-        <!-- Experience -->
-        <section>
-            <h2 class="text-xl font-semibold border-b pb-2 mb-4">Experience</h2>
+    <!-- Experience -->
+    <section>
+      <h2 class="text-xl font-semibold border-b pb-2 mb-4">Experience</h2>
 
-            <div class="mb-6">
-                <h3 class="font-bold">Senior Security Analyst – NationsBenefits</h3>
-                <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">2022–Present</p>
-                <ul class="list-disc pl-5 space-y-1">
-                    <li>Leads day-to-day security operations including XDR, MSOC, patching, and investigations.</li>
-                    <li>Built NIST-aligned IAM strategy with 500+ apps and 150+ access packages.</li>
-                    <li>Integrated JML automation via HRIS/AD/Entra ID.</li>
-                    <li>Migrated to Proofpoint, reducing phishing risk.</li>
-                    <li>Manages Thales HSM; performs key ceremonies.</li>
-                    <li>Monitors Azure Sentinel alerts and tunes detections.</li>
-                </ul>
-            </div>
+      <div class="mb-6">
+        <h3 class="font-bold">Senior Security Analyst – NationsBenefits</h3>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">2022–Present</p>
+        <ul class="list-disc pl-5 space-y-1">
+          <li>Leads day-to-day security operations including XDR, MSOC, patching, and investigations.</li>
+          <li>Built NIST-aligned IAM strategy with 500+ apps and 150+ access packages.</li>
+          <li>Integrated JML automation via HRIS/AD/Entra ID.</li>
+          <li>Migrated to Proofpoint, reducing phishing risk.</li>
+          <li>Manages Thales HSM; performs key ceremonies.</li>
+          <li>Monitors Azure Sentinel alerts and tunes detections.</li>
+        </ul>
+      </div>
 
-            <div>
-                <h3 class="font-bold">Technical Support Engineer – CDW / Champion Solutions Group</h3>
-                <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">2018–2022</p>
-                <ul class="list-disc pl-5 space-y-1">
-                    <li>Supported 300+ Microsoft 365/Azure clients securely.</li>
-                    <li>Led 5-person team; awarded Employee of the Quarter.</li>
-                    <li>Optimized licensing, implemented IAM/MFA/CA policies.</li>
-                </ul>
-            </div>
-        </section>
+      <div>
+        <h3 class="font-bold">Technical Support Engineer – CDW / Champion Solutions Group</h3>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">2018–2022</p>
+        <ul class="list-disc pl-5 space-y-1">
+          <li>Supported 300+ Microsoft 365/Azure clients securely.</li>
+          <li>Led 5-person team; awarded Employee of the Quarter.</li>
+          <li>Optimized licensing, implemented IAM/MFA/CA policies.</li>
+        </ul>
+      </div>
+    </section>
 
-        <!-- Education -->
-        <section>
-            <h2 class="text-xl font-semibold border-b pb-2 mb-4">Education</h2>
-            <p>Bachelor of Business Administration – Management Information Systems</p>
-            <p>Florida Atlantic University</p>
-        </section>
+    <!-- Education -->
+    <section>
+      <h2 class="text-xl font-semibold border-b pb-2 mb-4">Education</h2>
+      <p>Bachelor of Business Administration – Management Information Systems</p>
+      <p>Florida Atlantic University</p>
+    </section>
 
-        <!-- Certifications -->
-        <section>
-            <h2 class="text-xl font-semibold border-b pb-2 mb-4">Certifications</h2>
-            <ul class="list-disc pl-5 space-y-1">
-                <li>CISSP</li>
-                <li>Azure Security Engineer Associate (AZ-500)</li>
-                <li>Azure Administrator Associate (AZ-104)</li>
-                <li>CompTIA Security+</li>
-                <li>Modern Desktop Administrator (MD-100, MD-101)</li>
-                <li>Office 365 – Identity and Services (70-346, 70-347)</li>
-            </ul>
-        </section>
+    <!-- Certifications -->
+    <section>
+      <h2 class="text-xl font-semibold border-b pb-2 mb-4">Certifications</h2>
+      <ul class="list-disc pl-5 space-y-1">
+        <li>CISSP</li>
+        <li>Azure Security Engineer Associate (AZ-500)</li>
+        <li>Azure Administrator Associate (AZ-104)</li>
+        <li>CompTIA Security+</li>
+        <li>Modern Desktop Administrator (MD-100, MD-101)</li>
+        <li>Office 365 – Identity and Services (70-346, 70-347)</li>
+      </ul>
+    </section>
 
-        <!-- Military -->
-        <section>
-            <h2 class="text-xl font-semibold border-b pb-2 mb-4">Military Service</h2>
-            <ul class="list-disc pl-5 space-y-1">
-                <li>United States Marine Corps – Logistics Support Specialist (E4)</li>
-                <li>2008–2012, Honorable Discharge</li>
-            </ul>
-        </section>
-    </main>
+    <!-- Military -->
+    <section>
+      <h2 class="text-xl font-semibold border-b pb-2 mb-4">Military Service</h2>
+      <ul class="list-disc pl-5 space-y-1">
+        <li>United States Marine Corps – Logistics Support Specialist (E4)</li>
+        <li>2008–2012, Honorable Discharge</li>
+      </ul>
+    </section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white text-center py-4">
-        <p>&copy; 2025 Carlos Miyares IV</p>
-    </footer>
+    <!-- Visitor Counter -->
+    <div id="visitor-count" class="text-sm text-right italic text-gray-500 dark:text-gray-400">
+      Visitors: Loading...
+    </div>
+  </main>
 
-    <!-- Animate sections on scroll -->
-    <script>
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white text-center py-4">
+    <p>&copy; 2025 Carlos Miyares IV</p>
+  </footer>
+
+  <!-- Section Animation -->
+  <script>
     const sections = document.querySelectorAll("section");
     const observer = new IntersectionObserver(
       entries => {
@@ -174,7 +178,27 @@
       section.classList.add("opacity-0");
       observer.observe(section);
     });
-    </script>
+  </script>
 
+  <!-- Visitor Counter Script -->
+  <script>
+    async function updateVisitorCount() {
+      try {
+        await fetch('https://resume-visitor-counter.miyarescarlosiv.workers.dev/increment', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' }
+        });
+
+        const response = await fetch('https://resume-visitor-counter.miyarescarlosiv.workers.dev/count');
+        const count = await response.text();
+        document.getElementById('visitor-count').innerText = `Visitors: ${count}`;
+      } catch (error) {
+        console.error('Error updating visitor count:', error);
+        document.getElementById('visitor-count').innerText = 'Visitors: Error';
+      }
+    }
+
+    window.addEventListener('load', updateVisitorCount);
+  </script>
 </body>
 </html>
