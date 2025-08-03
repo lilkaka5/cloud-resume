@@ -1,47 +1,51 @@
-# .github/workflows/deploy-gh-pages.yml
+# Name of the CI/CD workflow
+name: Build, Test, and Deploy Resume
 
-name: Deploy Resume to GitHub Pages
-
-# 1. Trigger: Run this workflow on every push to the 'main' branch
+# Controls when the workflow will run
 on:
+  # Triggers the workflow on push events but only for the "main" branch
   push:
-    branches:
-      - main # Or 'master' depending on your repo's default branch
+    branches: ["main"]
+  # Triggers the workflow when a pull request is opened against the "main" branch
+  pull_request:
+    branches: ["main"]
+
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# 2. Permissions: Grant the GITHUB_TOKEN permissions to write to GitHub Pages
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-# 3. Jobs: Define the sequence of tasks
+# A workflow run is made up of one or more jobs
 jobs:
-  deploy:
-    name: Deploy to GitHub Pages
-    runs-on: ubuntu-latest # Use the latest stable Ubuntu runner
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }} # Output the deployed URL
-
+  # This job handles checking out the code and building it. It runs on both pushes and PRs.
+  build:
+    name: Build & Verify
+    runs-on: ubuntu-latest
     steps:
-      # 4. Step 1: Check out your repository code
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 5. Step 2: Configure GitHub Pages
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
-      # 6. Step 3: Build the site artifact (a .tar.gz file of your site)
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Path to the files you want to deploy. '.' means the root of your repo.
-          path: '.' 
+          path: '.'
 
-      # 7. Step 4: Deploy the artifact to GitHub Pages
+  # This job handles deployment. It will ONLY run after the 'build' job succeeds
+  # AND the trigger was a push to the 'main' branch.
+  deploy:
+    name: Deploy to GitHub Pages
+    # The job needs the 'build' job to finish successfully first
+    needs: build
+    
+    # This 'if' condition is the gatekeeper. It ensures deployment only happens on a direct push to main.
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
