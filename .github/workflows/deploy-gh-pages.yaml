@@ -3,25 +3,47 @@ name: Build, Test, and Deploy Resume
 
 # Controls when the workflow will run
 on:
-  # Triggers the workflow on push events but only for the "main" branch
   push:
     branches: ["main"]
-  # Triggers the workflow when a pull request is opened against the "main" branch
   pull_request:
     branches: ["main"]
-
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+
+# NEW: Defines the permissions granted to the GITHUB_TOKEN for all jobs in this workflow
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 # A workflow run is made up of one or more jobs
 jobs:
-  # This job handles checking out the code and building it. It runs on both pushes and PRs.
   build:
     name: Build & Verify
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: javascript
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Run HTML Linter
+        run: npm test
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v3
+        with:
+          category: "/language:javascript"
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -31,15 +53,13 @@ jobs:
         with:
           path: '.'
 
-  # This job handles deployment. It will ONLY run after the 'build' job succeeds
-  # AND the trigger was a push to the 'main' branch.
+  # This job handles deployment
   deploy:
     name: Deploy to GitHub Pages
-    # The job needs the 'build' job to finish successfully first
     needs: build
-    
-    # This 'if' condition is the gatekeeper. It ensures deployment only happens on a direct push to main.
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    
+    # Permissions are inherited from the top level, so no changes are needed here.
     
     environment:
       name: github-pages
