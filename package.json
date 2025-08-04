@@ -1,0 +1,15 @@
+{
+  "name": "cloud-resume",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "htmlhint index.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "htmlhint": "^1.6.3"
+  }
+}
